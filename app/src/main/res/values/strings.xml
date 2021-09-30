@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">first app</string>
+    <string name="hello_world_text">0</string>
+    <string name="toast">Toast</string>
+    <string name="count">Count</string>
+    <string name="rest">rest</string>
+    <string name="random">RANDOM</string>
+    <string name="textview">TextView</string>
+    <string name="random_number">R</string>
+    <string name="random_title">This is your random number %d</string>
+
+</resources>
