@@ -3,20 +3,42 @@ package com.first.firstapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import android.widget.TextView
 
+
+
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var textView: TextView
+    lateinit var textView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        textView = findViewById(R.id.textView)
-
+        setContentView(com.first.firstapp.R.layout.activity_main)
+        textView = findViewById(com.first.firstapp.R.id.textView)
     }
+
+
+    override fun onSaveInstanceState(outState: Bundle) {
+
+        outState.run {
+            putString("KEY", textView.text.toString())
+        }
+
+        super.onSaveInstanceState(outState)
+    }
+
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        textView.text = savedInstanceState.getString("KEY")
+    }
+
+
+
 
 
     fun toastMe(view: View) {
@@ -33,6 +55,7 @@ class MainActivity : AppCompatActivity() {
         count++
         // Display the new value in the text view.
         textView.text = count.toString();
+
     }
 
     fun restMe (view: View) {
@@ -78,4 +101,13 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
+
+
 }
+
+
+
+
+
+
